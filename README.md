@@ -1,1 +1,1 @@
-# playwright
+# Playwright with TypeScript
