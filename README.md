@@ -19,7 +19,7 @@ A scalable test automation framework built with Playwright, designed for cross-b
 ##### 1. Clone the repo:
 
 ```bash
-  git clone https://github.com/your-username/playwright.git
+  git clone https://github.com/mendonjr/playwright.git
   cd playwright
 ```
 ##### 2. Install dependencies:
