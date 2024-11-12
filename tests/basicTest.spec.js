@@ -1,7 +1,7 @@
 const {test} = require('@playwright/test')
 const {expect} = require('@playwright/test')
 
-test.only('First Playwright Test', async({browser})=>{
+test('First Playwright Test', async({browser})=>{
 
     const context = await browser.newContext();
     const page = await context.newPage();
@@ -27,14 +27,20 @@ test.only('First Playwright Test', async({browser})=>{
 //    console.log(allTitles)
 })
 
-// @ts-check
-const { test, expect } = require('@playwright/test');
 
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+test.only('UI controls', async ({ page }) => {
+  const userName = page.locator('#username');
+    const passWord = page.locator('#password');
+    await page.goto('https://rahulshettyacademy.com/loginpagePractise/');
+    const dropdown = await page.locator('select.form-control')
+    await dropdown.selectOption('consult');     //desired element insde a option tag, if element inside label tag then we can use selectText()
+    
+    //radio button
+    await page.locator('.checkmark').last().click();
+    await page.locator('#okayBtn').click();
 
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
+
+    await page.pause();
 });
 
 test('get started link', async ({ page }) => {
