@@ -1,6 +1,6 @@
 const {test,expect} = require('@playwright/test');
 
-test.only('Shopping Web App Demo', async({page})=>{
+test('Shopping Web App Demo', async({page})=>{
     await page.goto('https://rahulshettyacademy.com/client');
     await page.locator('#userEmail').fill('prasad108@gmail.com');
     await page.locator('#userPassword').fill('Hare@krishna108');
