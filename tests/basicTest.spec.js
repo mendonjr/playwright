@@ -54,7 +54,7 @@ test('UI controls', async ({ page }) => {
   // await page.pause();
 });
 
-test.only('Child Window Handle', async ({ browser }) => {
+test('Child Window Handle', async ({ browser }) => {
   const context = await browser.newContext();
   const page = await context.newPage();
   await page.goto('https://rahulshettyacademy.com/loginpagePractise/');
@@ -75,5 +75,4 @@ test.only('Child Window Handle', async ({ browser }) => {
   const act = email[1].split(" w")[0];
   console.log(act);
   await page.locator('#username').fill(act); //grabbing text from child window and entering in parent window
-  await page.pause();
 });
