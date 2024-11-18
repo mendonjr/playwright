@@ -14,4 +14,18 @@ test.only('Shopping Web App Demo', async({page})=>{
     //grab title of first product
 
     expect(await page.locator('.card b').first().textContent()).toEqual('ZARA COAT 3')
+
+    //script to add Iphone 13 pro to cart
+
+    const products = await page.locator('.card-body');
+    const count = await products.count();
+    await page.pause()
+    for(let i=0;i<count;i++){
+        if(await products.nth(i).locator('b').textContent() === 'IPHONE 13 PRO'){
+            //add to cart
+            await products.nth(i).locator("text= Add To Cart").click();
+            break;
+        }
+    }
+    
 })
