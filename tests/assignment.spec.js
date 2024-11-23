@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 
-test.only('Shopping Web App E2E scenario', async ({ page }) => {
+test('Shopping Web App E2E scenario', async ({ page }) => {
     const email = "prasad108@gmail.com";
     await page.goto('https://rahulshettyacademy.com/client');
     await page.locator('#userEmail').fill(email);
@@ -86,4 +86,29 @@ test.only('Shopping Web App E2E scenario', async ({ page }) => {
     await page.locator('div.email-title').waitFor();
     await expect(page.locator("div.-main")).toHaveText(orderID);
 
-})                             
+})
+
+test.only('Shopping Web App E2E scenario with Special Locators', async ({ page }) => {
+    const email = "prasad108@gmail.com";
+    await page.goto('https://rahulshettyacademy.com/client');
+    await page.getByPlaceholder('email@example.com').fill(email);
+    await page.getByPlaceholder('enter your passsword').fill('Hare@krishna108');
+    await page.getByRole('button',{name:'Login'}).click();
+
+    await page.locator('.card b').first().waitFor()
+    await page.locator('.card').filter({hasText: 'ZARA COAT 3'}).getByRole('button', {name:' Add To Cart'}).click();
+    await page.getByRole('listitem').getByRole('button',{name:'Cart'}).click();
+
+    await page.locator('button:has-text("Buy")').waitFor();
+    
+    expect(await page.getByText('ZARA COAT 3')).toBeVisible();
+
+    await page.getByText("Checkout").click();
+    await page.getByPlaceholder('Country').pressSequentially('Ind');
+    await page.getByRole('button', {name:'India'}).nth(1).click();
+
+    await page.getByText('Place Order ').click()  
+
+    expect(await page.getByText(" Thankyou for the order. ")).toBeVisible();
+
+})
