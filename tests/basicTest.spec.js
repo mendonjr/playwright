@@ -1,5 +1,4 @@
-const { test } = require('@playwright/test')
-const { expect } = require('@playwright/test')
+const { test, expect } = require('@playwright/test')
 
 test('First Playwright Test', async ({ browser }) => {
 
