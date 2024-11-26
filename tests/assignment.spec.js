@@ -88,7 +88,7 @@ test('Shopping Web App E2E scenario', async ({ page }) => {
 
 })
 
-test.only('Shopping Web App E2E scenario with Special Locators', async ({ page }) => {
+test('Shopping Web App E2E scenario with Special Locators', async ({ page }) => {
     const email = "prasad108@gmail.com";
     await page.goto('https://rahulshettyacademy.com/client');
     await page.getByPlaceholder('email@example.com').fill(email);
