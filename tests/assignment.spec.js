@@ -75,7 +75,6 @@ test('Shopping Web App E2E scenario', async ({ page }) => {
     console.log(orderCount);
     for (let i = 0; i < orderCount; i++) {
         const rowOrderId = await rows.nth(i).locator('th').textContent();
-        console.log(text);
         if (rowOrderId === orderID) {
             rows.nth(i).locator('button:has-text("View")').click();           //click on view button once orderID matched
             break;
