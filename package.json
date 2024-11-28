@@ -3,12 +3,18 @@
   "version": "1.0.0",
   "description": "A scalable test automation framework built with Playwright, designed for cross-browser testing and end-to-end testing of modern web applications.",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "regression": "npx playwright test"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.48.2",
-    "@types/node": "^22.9.0"
+    "@types/node": "^22.9.0",
+    "allure-playwright": "^3.0.6"
+  },
+  "dependencies": {
+    "allure-commandline": "^2.32.0"
   }
 }
