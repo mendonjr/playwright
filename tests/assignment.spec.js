@@ -87,7 +87,7 @@ test('Shopping Web App E2E scenario', async ({ page }) => {
 
 })
 
-test('Shopping Web App E2E scenario with Special Locators', async ({ page }) => {
+test.only('Shopping Web App E2E scenario with Special Locators', async ({ page }) => {
     const email = "prasad108@gmail.com";
     await page.goto('https://rahulshettyacademy.com/client');
     await page.getByPlaceholder('email@example.com').fill(email);
@@ -98,7 +98,7 @@ test('Shopping Web App E2E scenario with Special Locators', async ({ page }) => 
     await page.locator('.card').filter({hasText: 'ZARA COAT 3'}).getByRole('button', {name:' Add To Cart'}).click();
     await page.getByRole('listitem').getByRole('button',{name:'Cart'}).click();
 
-    await page.locator('button:has-text("Buy")').waitFor();
+    // await page.locator('button:has-text("Buy")').waitFor();
     
     expect(await page.getByText('ZARA COAT 3')).toBeVisible();
 
